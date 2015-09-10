@@ -1,0 +1,23 @@
+{
+  "name": "spyc/elearn-foundation",
+  "description": "The SPYC Foundation package.",
+  "version": "1.0-dev",
+  "license": "MIT",
+  "require": {
+    "hhvm": "~3.6",
+    "illuminate/auth": "^5.1",
+    "illuminate/contracts": "^5.1",
+    "illuminate/routing": "^5.1",
+    "illuminate/support": "^5.1"
+  },
+  "autoload": {
+    "psr-4": {
+      "Elearn\\Foundation\\": "src"
+    }
+  },
+  "extra": {
+    "branch-alias": {
+      "dev-master": "1.0-dev"
+    }
+  }
+}
