@@ -12,7 +12,9 @@ namespace Elearn\Foundation\Helper;
 
 use DOMDocument;
 use DOMXPath;
+use Elearn\Foundation\Exception\XMLException;
 use Symfony\Component\CssSelector\CssSelector;
+use Log;
 
 class XML
 {
@@ -39,6 +41,11 @@ class XML
     public function __construct($version = '1.0', $encoding = 'UTF-8')
     {
         $this->dom = new DOMDocument($version, $encoding);
+    }
+
+    public function clearNamespace()
+    {
+        $this->namespaces = [];
     }
 
     /**
@@ -121,5 +128,36 @@ class XML
     public function getDocument()
     {
         return $this->dom;
+    }
+
+    /**
+     * @param XML $doc
+     * @param $schema
+     * @param bool|false $debug
+     *
+     * @return DOMDocument
+     * @throws XMLException
+     */
+    public static function validSchema(XML $doc, $schema, $debug = false)
+    {
+        assert('is_string($schema)');
+        libxml_clear_errors();
+        libxml_use_internal_errors(true);
+
+        $oldEntityLoader = libxml_disable_entity_loader(false);
+        $dom = $doc->getDocument();
+        $res = $dom->schemaValidate($schema
+        libxml_disable_entity_loader($oldEntityLoader);
+        if (!$res || !$res instanceof DOMDocument) {
+            $xmlErrors = libxml_get_errors();
+            if ($debug) {
+                foreach ($xmlErrors as $error) {
+                    Log::error($error->message);
+                }
+            }
+            throw new XMLException($xmlErrors);
+        }
+
+        return $dom;
     }
 }
