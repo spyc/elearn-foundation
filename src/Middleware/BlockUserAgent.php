@@ -27,7 +27,7 @@ class BlockUserAgent
     {
         $agent = $request->header('User-Agent');
         if ($agent && Str::contains($agent, $this->badUserAgents)) {
-            return response('Connection Refuse', 111);
+            return abort(400);
         }
 
         return $next($request);
