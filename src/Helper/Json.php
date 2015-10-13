@@ -29,7 +29,7 @@ abstract class Json
      *
      * @return mixed
      */
-    public static function parse($content, $assoc = false, $depth = 512, $options = 0)
+    public static function parse($content, $assoc = true, $depth = 512, $options = 0)
     {
         if (preg_match('/\{\}/', preg_replace('/\s/', '', $content)))
             return [];
