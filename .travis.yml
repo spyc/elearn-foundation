@@ -1,0 +1,10 @@
+language: php
+php:
+  - hhvm
+
+sudo: false
+
+install:
+  - composer install --dev -o --profile -vv
+
+script: vendor/bin/phpunit
