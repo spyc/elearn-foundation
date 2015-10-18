@@ -10,15 +10,26 @@
 
 namespace Elearn\Foundation\Test\Search;
 
-
+use ReflectionMethod;
 use Elearn\Foundation\Search\Indexer;
 
 class ClientTest extends \PHPUnit_Framework_TestCase
 {
+    private $client;
+
+    public function setUp()
+    {
+        $this->client = new Indexer();
+    }
+
+    public function testClass()
+    {
+        $this->assertInstanceOf(Indexer::class, $this->client);
+    }
+
     public function testPing()
     {
-        $client = new Indexer();
-        $this->assertInstanceOf(Indexer::class, $client);
-        $this->assertTrue($client->ping());
+        $method = new ReflectionMethod($this->client, 'ping');
+        $this->assertTrue($method->isPublic());
     }
 }
