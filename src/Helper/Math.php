@@ -26,7 +26,7 @@ abstract class Math
         $a = abs($a);
         $b = abs($b);
 
-        if ($a === 0 || $b === 0) {
+        if ($a === 1 || $b === 1) {
             return max($a, $b);
         }
 

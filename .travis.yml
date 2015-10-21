@@ -1,8 +1,13 @@
 language: php
+
 php:
   - hhvm
 
-sudo: false
+
+before_script:
+  - sudo apt-get -qq update
+  - sudo apt-get -y install hhvm
+  - composer self-update
 
 install:
   - composer install --dev -o --profile -vv
