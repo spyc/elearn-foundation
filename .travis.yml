@@ -4,12 +4,8 @@ php:
   - hhvm
   - 5.6
 
-before_script:
-  - sudo apt-get -qq update
-  - sudo apt-get -y install hhvm
-  - composer self-update
-
 install:
-  - composer install --dev -o --profile -vv
+  - composer self-update
+  - composer install -o --profile -vv
 
 script: vendor/bin/phpunit
