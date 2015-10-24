@@ -1,6 +1,6 @@
 #Elearn Foundation
 
-[![Build Status](https://travis-ci.org/tonyhhyip/elearn-foundation.svg?branch=master)](https://travis-ci.org/tonyhhyip/elearn-foundation)
+[![Build Status](https://travis-ci.org/spyc/elearn-foundation.svg?branch=master)](https://travis-ci.org/spyc/elearn-foundation)
 
 Basic Class and Helpers for Elearn Service.
 Licensed under [MIT License](LICENSE.md)
