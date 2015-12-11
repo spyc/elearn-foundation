@@ -1,6 +1,5 @@
 <?php
 /**
- * HHVM
  *
  * Copyright (C) Tony Yip 2015.
  *
