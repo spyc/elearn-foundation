@@ -24,7 +24,7 @@ class ApcClassLoader extends AbstractClassLoader
 
 	/**
 	 * A class loader object that implements the findFile() method.
-	 * @var Vector<ClassLoaderInterface>
+	 * @var ClassLoaderInterface
 	 */
 	protected ClassLoaderInterface $instance;
 
@@ -32,7 +32,7 @@ class ApcClassLoader extends AbstractClassLoader
 	 * Constructor
 	 * 
 	 * @param string                      $prefix    The APC namespace prefix to use.
-	 * @param array<ClassLoaderInterface> $instance  A class loader object that implements the findFile() method.
+	 * @param ClassLoaderInterface $instance  A class loader object that implements the findFile() method.
 	 */
 	public function __construct(string $prefix, ClassLoaderInterface $instance)
 	{
