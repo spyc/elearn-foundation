@@ -12,7 +12,7 @@ namespace Elearn\Foundation\ClassLoader;
 /**
  * Abstract Class of ClassLoader.
  */
-abstract class AbstractClassLoader
+abstract class AbstractClassLoader implements ClassLoaderInterface
 {
 
 	/**
@@ -41,7 +41,7 @@ abstract class AbstractClassLoader
     public function loadClass(string $class): bool
     {
         if ($file = $this->findFile($class)) {
-            require $file;
+            require_once $file;
 
             return true;
         }
