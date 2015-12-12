@@ -15,6 +15,13 @@ use Elearn\Foundation\ClassLoader\ClassLoader;
 
 class ClassLoaderTest extends \PHPUnit_Framework_TestCase
 {
+    protected function setUp()
+    {
+        if (defined('HHVM_VERSION')) {
+            $this->markTestSkipped("Non HHVM");
+        }
+    }
+    
     public function testGetPrefixes()
     {
         $loader = new ClassLoader();
