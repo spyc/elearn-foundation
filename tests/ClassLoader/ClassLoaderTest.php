@@ -17,13 +17,14 @@ class ClassLoaderTest extends \PHPUnit_Framework_TestCase
 {
     protected function setUp()
     {
-        if (defined('HHVM_VERSION')) {
+        if (!defined('HHVM_VERSION')) {
             $this->markTestSkipped("Non HHVM");
         }
     }
     
     public function testGetPrefixes()
     {
+        $this->setUp();
         $loader = new ClassLoader();
         $loader->addPrefix('Foo', __DIR__.DIRECTORY_SEPARATOR.'Fixtures');
         $loader->addPrefix('Bar', __DIR__.DIRECTORY_SEPARATOR.'Fixtures');

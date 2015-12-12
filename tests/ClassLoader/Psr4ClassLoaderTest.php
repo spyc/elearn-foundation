@@ -18,7 +18,7 @@ class Psr4ClassLoaderTest extends \PHPUnit_Framework_TestCase
     
     protected function setUp()
     {
-        if (defined('HHVM_VERSION')) {
+        if (!defined('HHVM_VERSION')) {
             $this->markTestSkipped("Non HHVM");
         }
     }
